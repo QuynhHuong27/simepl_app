@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  def helloworld
-    render "layouts/helloworld"
-  end
+  include SessionsHelper
 
 end
