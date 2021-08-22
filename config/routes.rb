@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get "page_not_fould", to: "page_error#not_fould"
-  get "page_error_server", to: "page_error#error_server"
-  root "sessions#new"
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  resources :users
+  scope "(:locale)", locale: /en|vi/ do
+    root "static_pages#home"
+
+    resources :users
+
+    get "static_pages/home"
+    get "/help", to: "static_pages#help"
+    get "/about", to: "static_pages#about"
+    get "/signup", to: "users#new"
+
+    get "/login", to: "sessions#new"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+  end
 end
