@@ -1,33 +1,97 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  logo: "sample app"
+  getting: "Xin chao"
+  language:
+    languages: "Languages"
+    english: "English"
+    vietnamese: "Vietnamese"
+  title:
+    welcome: "Welcome to Sample App"
+    home: "Home"
+    help: "Help"
+    about: "About"
+    public: "Ruby on Rails Tutorial Sample App"
+  the_book_help_rubyOnrails:
+    title_home: "This is the home page for the"
+    title_home: "This is home page"
+    title_about: "This is about page"
+    title_help: "This is help page"
+  book:
+    book_1: "Ruby on Rails Tutorial"
+    book_2: "Rails Tutorial Help"
+  users:
+    account: "Account"
+    user: "Users"
+    user_new: "Signup"
+    login: "Login"
+    profile: "Profile"
+    delete: "Delete"
+  signup:
+    label:
+      name: "User name"
+      email: "Email"
+      password: "Password"
+      password_comfirm: "Password Comfirmation"
+      submit: "Create account"
+    message:
+      messages_count: "The form contains"
+      error: "error"
+      success: "Welcome to the Sample App!"
+      fail: "Signup fails!"
+      login: "You need signup/login"
+  login:
+    title: "Login"
+    label:
+      email: "Email"
+      password: "Password"
+      submit: "Submit"
+      rememberme: "Remember me"
+    message:
+      danger: "Login fail"
+  logout: "Logout"
+  settings: "Setting"
+  update:
+    title: "Update"
+    submit: "Update"
+    message:
+      success: "Success"
+      fail: "Fails"
+  index:
+    link: "Users"
+    title: "All users"
+  comfirm_login:
+    message: "please login first"
+    comfirm: "Are you sure?"
+  activation:
+    message:
+      success: "Success"
+      danger: "Fail"
+    subject: "Account activation"
+    reset_password: "Reset password"
+  mailer:
+    activation: "Activation"
+    content: "Welcome to the Sample App! Click on the link below to activate your account"
+    reset_password:
+      title: "Password reset"
+      message_1: "To reset your password click the link below:"
+      message_2: "This link will expire in two hours."
+  password_reset:
+    title: "(Forgot password)"
+    create:
+      message:
+        flash: "You need to check your email"
+        danger: "Can't send to your email"
+    update:
+      message: "Can't be blank"
+  micropost:
+    title: "Micropost"
+    message:
+      success: "Micropost created succsess"
+      delete: "Micropost deleted succsess"
+    image:
+      message: "Image must to fomat"
+      size: "Image must to less 10MB"
+    content_1: "Posted"
+    content_2: "ago."
+    delete: "delete"
+    placholder: "Compose new micropost..."

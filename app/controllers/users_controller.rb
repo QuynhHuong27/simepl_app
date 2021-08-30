@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+
 
   def new
     @user = User.new
@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
+      @user.send_activation_email
       flash[:success] = t "signup.message.success"
-      redirect_to @user
+      redirect_to root_path
     else
       flash[:danger] = t "signup.message.fail"
       render :new
@@ -27,6 +27,11 @@ class UsersController < ApplicationController
   end
 
   def edit; end
+
+  def show
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
 
   def update
     if @user.update user_params
@@ -58,24 +63,16 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit User::USERS_PARAMS
-  end
-
-  # Confirms a logged-in user.
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "comfirm_login.message"
-    redirect_to login_url
+    params.require(:user).permit(:name, :email, :password,
+                                        :password_confirmation)
   end
 
   def correct_user
-    redirect_to root_url unless current_user? @user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 
   def admin_user
-    redirect_to root_url unless current_user.admin?
+    redirect_to(root_url) unless current_user.admin?
   end
-
 end
